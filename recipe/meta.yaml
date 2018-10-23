@@ -1,4 +1,4 @@
-{% set name = "pytest_session2file" %}
+{% set name = "pytest-session2file" %}
 {% set version = "0.1.9+" %}
 
 package:
