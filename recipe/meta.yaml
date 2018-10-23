@@ -1,0 +1,45 @@
+{% set name = "pytest_session2file" %}
+{% set version = "0.1.9+" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  git_url: https://github.com/BuhtigithuB/pytest_session2file
+  sha1: 8a97d3a605cea631eafd933f41d1f7f91d1e3cee
+
+build:
+  number: 0
+  string: 8a97d3a605
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python
+    - setuptools
+    - pytest
+  run:
+    - python
+    - setuptools
+    - pytest
+
+about:
+  home: https://github.com/BuhtigithuB/pytest_session2file
+  license: GNU Lesser General Public License v3 (LGPLv3)
+  license_family: LGPL
+  license_file: ''
+  summary: 'pytest-session2file (aka: pytest-session_to_file for v0.1.0 - v0.1.2) is a py.test plugin for capturing and saving to file the stdout of py.test.'
+  description: "pytest-session2file\n======================\n\npytest-session2file is a py.test plugin that save failure or test session information to a file pass that can be\ninvoked as at command line\
+    \ when launching py.test run. It put in a file exactly what pytest return to stdout.\n\n**Installation**\n\n\nInstall it with pip as follow :\n\n    pip install pytest-session2file\n\n\n**Usage**\n\n\
+    \nOnce the plugin is installed edit your `conftest.py` and insert in the top of the file :\n\n    pytest_plugins = 'pytest_session2file'\n\nThen you can launch your test with the new option `--session2file=`\
+    \ like this :\n\n    py.test --session2file=FILENAME\n\nIf you don't want to edit your `conftest.py` you can invoque py.test like this :\n\n    py.test -p pytest_session2file --session2file=FILENAME\n\
+    \nAt the end of the test execution you should obtain a text file with the content of stdout of py.test under the filename\nprovided that look like this :\n\n============== test session starts ====================\n\
+    \n...\n\n============== 2 passed in 34.70 seconds ==============\n\n**NOTE:** Name has change from pytest-session_to_file to pytest-session2file\n\n**TODO:** Write test\n\n**Inspire by:** _pytest.pastebin\n\
+    \n**Ref:** https://github.com/pytest-dev/pytest/blob/master/_pytest/pastebin.py\n\n\n\n**Platforms:** All\n\n**Version:** 0.1.9\n\n**Date:** 2016-03-16 12:35:41\n\n**License:** LGPLv3 (http://www.gnu.org/licenses/lgpl.html)\n\
+    \nCopyright (C) 2015 Richard V\xE9zina <ml.richard.vezinar@gmail.com>"
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''
