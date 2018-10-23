@@ -1,5 +1,5 @@
 {% set name = "pytest-session2file" %}
-{% set version = "0.1.9plus" %}
+{% set version = "0.1.9a" %}
 
 package:
   name: '{{ name|lower }}'
@@ -7,11 +7,10 @@ package:
 
 source:
   git_url: https://github.com/BuhtigithuB/pytest_session2file
-  sha1: 8a97d3a605cea631eafd933f41d1f7f91d1e3cee
+  git_rev: afcde6767bfe6287d85f571457d518287d87efb3
 
 build:
-  number: 0
-  string: 8a97d3a605
+  string: {{ environ.get('GIT_BUILD_STR', '') }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
